@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Pages:PopupPage
+    xmlns:Pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Todolist_LIPE.Views.AddTasksPopup">
+    <StackLayout BackgroundColor="White" WidthRequest="300" HeightRequest="210" 
+        VerticalOptions="CenterAndExpand" 
+        HorizontalOptions="Center" 
+        Padding="20">
+
+        <Entry Placeholder="To-do" Text="{Binding Todoitem}"/>
+        <Entry Placeholder="Description" Text="{Binding Description}"/>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ActivityIndicator Grid.Row="0"
+                            HeightRequest="25" WidthRequest="25"
+                            IsRunning="{Binding IsBusy}"
+                            IsEnabled="{Binding IsBusy}"
+                            IsVisible="{Binding IsBusy}"/>
+
+            <Button IsVisible="{Binding IsNotBusy}"
+                        Margin="0,20" Grid.Row="0"
+                        Command="{Binding addtaskCommand}"
+                        CornerRadius="20"
+                        Text="Submit"
+                        TextColor="White" />
+
+
+        </Grid>
+
+
+
+    </StackLayout>
+
+
+    </Pages:PopupPage>

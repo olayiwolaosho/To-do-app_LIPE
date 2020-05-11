@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Todolist_LIPE.Views.MyTasks"
+NavigationPage.HasNavigationBar="False"
+             xmlns:input="clr-namespace:Plugin.InputKit.Shared.Controls;assembly=Plugin.InputKit"
+             xmlns:local="clr-namespace:Todolist_LIPE.Behaviours"
+             xmlns:local1="clr-namespace:Todolist_LIPE.Views"
+             Padding="5">    
+    <ContentPage.Content>
+        <AbsoluteLayout VerticalOptions="FillAndExpand">
+            <RefreshView IsRefreshing="{Binding IsRefreshing}"
+             Command="{Binding RefreshCommand}" AbsoluteLayout.LayoutBounds="0, 0, 1,1" AbsoluteLayout.LayoutFlags="All">
+                <CollectionView x:Name="collectionViewListHorizontal"  ItemsSource="{Binding MyTasks}" 
+                            SelectionMode="Single"
+                          SelectionChanged="collectionViewListHorizontal_SelectionChanged"
+                         SelectionChangedCommandParameter="{Binding MyTasks}"
+                            
+                          VerticalScrollBarVisibility="Never"
+                           >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <SwipeView>
+                                <SwipeView.LeftItems>
+                                    <SwipeItems>
+                                        <SwipeItem Text="Complete"
+                                   BackgroundColor="LightGreen"
+                                   Command="{Binding Source={x:Reference collectionViewListHorizontal}, Path=BindingContext.CompleteCommand}"
+                                   CommandParameter="{Binding}" />
+                                        <SwipeItem Text="Delete"
+                                   BackgroundColor="LightPink"
+                                   Command="{Binding Source={x:Reference collectionViewListHorizontal}, Path=BindingContext.DeleteCommand}"
+                                   CommandParameter="{Binding}" />
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
+                                <SwipeView.RightItems>
+                                    <SwipeItems>
+                                        <SwipeItem Text="Complete"
+                                   BackgroundColor="LightGreen"
+                                   Command="{Binding Source={x:Reference collectionViewListHorizontal}, Path=BindingContext.CompleteCommand}"
+                                   CommandParameter="{Binding}" />
+                                        <SwipeItem Text="Delete"
+                                   BackgroundColor="LightPink"
+                                   Command="{Binding Source={x:Reference collectionViewListHorizontal}, Path=BindingContext.DeleteCommand}"
+                                   CommandParameter="{Binding}" />
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+                                <StackLayout  WidthRequest="260" Padding="15,10,5,15" Spacing="10" VerticalOptions="CenterAndExpand" Orientation="Vertical">
+                                    <Label HorizontalOptions="Start"  FontSize="20" TextColor="Black"  Text="{Binding TaskName}"/>
+                                    <!-- Separator -->
+                                    <BoxView HeightRequest="1"
+                   BackgroundColor="Gray" 
+                   VerticalOptions="End" Margin="-12,0,0,-12"/>
+                                </StackLayout>
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+            <Frame OutlineColor="Gray"  AbsoluteLayout.LayoutBounds="0, 1, 1 ,.08" AbsoluteLayout.LayoutFlags="All" Padding="2">
+                <Grid Padding="15,0,20,0">
+                    <ImageButton BackgroundColor="Transparent" Source="menu" Grid.Column="0" HorizontalOptions="Start" HeightRequest="17"/>
+                    <Button Text="additem" Command="{Binding openPopupCommand}"  Grid.Column="1" BackgroundColor="Transparent"/>
+                    <ImageButton BackgroundColor="Transparent" Source="shape" Grid.Column="2" HorizontalOptions="End" HeightRequest="17"/>
+                </Grid>
+            </Frame>
+            
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
