@@ -19,32 +19,14 @@ namespace Todolist_LIPE.Views
         public MyTasks()
         {
             InitializeComponent();
-            this.BindingContext = new MyTaskViewModel(this.Navigation);
-
-            MessagingCenter.Subscribe<MyTaskViewModel, Tasks>(
-        this, "AddList", async (sender, arg) =>
-        {
-            collectionViewListHorizontal.ItemsSource = await MTVM.Init();
-        });
-        }
-
-        ~MyTasks()
-        {
+           
         }
 
         protected async override void OnAppearing()
         {
-            collectionViewListHorizontal.ItemsSource = await MTVM.Init();
+            this.BindingContext = await MyTaskViewModel.CreateAsync(this.Navigation);
             base.OnAppearing();
         }
-
-        private async void BuyButton_Clicked(object sender, EventArgs e)
-        {
-            var b = (Button)sender;
-            var item = (Tasks)b.CommandParameter;
-            await DisplayAlert("Clicked",item.TaskName + "button was clicked", "OK");
-        }
-
 
         private void collectionViewListHorizontal_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

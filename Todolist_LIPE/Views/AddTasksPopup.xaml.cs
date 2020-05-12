@@ -16,9 +16,12 @@ namespace Todolist_LIPE.Views
         public AddTasksPopup()
         {
             InitializeComponent();
-            BindingContext = new MyTaskViewModel(this.Navigation);
         }
 
-
+        protected async override void OnAppearing()
+        {
+           this.BindingContext = await MyTaskViewModel.CreateAsync(this.Navigation);
+            base.OnAppearing();
+        }
     }
 }

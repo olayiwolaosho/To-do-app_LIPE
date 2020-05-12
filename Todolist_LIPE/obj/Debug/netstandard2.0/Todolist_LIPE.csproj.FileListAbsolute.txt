@@ -1,0 +1,16 @@
+C:\Users\Dev Adekunle\source\repos\Todolist_LIPE\Todolist_LIPE\obj\Debug\netstandard2.0\Todolist_LIPE.csprojAssemblyReference.cache
+C:\Users\Dev Adekunle\source\repos\Todolist_LIPE\Todolist_LIPE\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\Dev Adekunle\source\repos\Todolist_LIPE\Todolist_LIPE\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\Dev Adekunle\source\repos\Todolist_LIPE\Todolist_LIPE\obj\Debug\netstandard2.0\Views\AddTasksPopup.xaml.g.cs
+C:\Users\Dev Adekunle\source\repos\Todolist_LIPE\Todolist_LIPE\obj\Debug\netstandard2.0\Views\EditMyTasks.xaml.g.cs
+C:\Users\Dev Adekunle\source\repos\Todolist_LIPE\Todolist_LIPE\obj\Debug\netstandard2.0\Views\MyTasks.xaml.g.cs
+C:\Users\Dev Adekunle\source\repos\Todolist_LIPE\Todolist_LIPE\obj\Debug\netstandard2.0\Todolist_LIPE.AssemblyInfoInputs.cache
+C:\Users\Dev Adekunle\source\repos\Todolist_LIPE\Todolist_LIPE\obj\Debug\netstandard2.0\Todolist_LIPE.AssemblyInfo.cs
+C:\Users\Dev Adekunle\source\repos\Todolist_LIPE\Todolist_LIPE\bin\Debug\netstandard2.0\Todolist_LIPE.deps.json
+C:\Users\Dev Adekunle\source\repos\Todolist_LIPE\Todolist_LIPE\bin\Debug\netstandard2.0\Todolist_LIPE.dll
+C:\Users\Dev Adekunle\source\repos\Todolist_LIPE\Todolist_LIPE\bin\Debug\netstandard2.0\ref\Todolist_LIPE.dll
+C:\Users\Dev Adekunle\source\repos\Todolist_LIPE\Todolist_LIPE\bin\Debug\netstandard2.0\Todolist_LIPE.pdb
+C:\Users\Dev Adekunle\source\repos\Todolist_LIPE\Todolist_LIPE\obj\Debug\netstandard2.0\XamlC.stamp
+C:\Users\Dev Adekunle\source\repos\Todolist_LIPE\Todolist_LIPE\obj\Debug\netstandard2.0\Todolist_LIPE.dll
+C:\Users\Dev Adekunle\source\repos\Todolist_LIPE\Todolist_LIPE\obj\Debug\netstandard2.0\ref\Todolist_LIPE.dll
+C:\Users\Dev Adekunle\source\repos\Todolist_LIPE\Todolist_LIPE\obj\Debug\netstandard2.0\Todolist_LIPE.pdb

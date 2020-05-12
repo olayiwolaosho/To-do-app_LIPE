@@ -14,7 +14,7 @@ NavigationPage.HasNavigationBar="False"
         <AbsoluteLayout VerticalOptions="FillAndExpand">
             <RefreshView IsRefreshing="{Binding IsRefreshing}"
              Command="{Binding RefreshCommand}" AbsoluteLayout.LayoutBounds="0, 0, 1,1" AbsoluteLayout.LayoutFlags="All">
-                <CollectionView x:Name="collectionViewListHorizontal"  ItemsSource="{Binding MyTasks}" 
+                <CollectionView x:Name="collectionViewListHorizontal"  ItemsSource="{Binding MyTasks, Mode=TwoWay}" 
                             SelectionMode="Single"
                           SelectionChanged="collectionViewListHorizontal_SelectionChanged"
                          SelectionChangedCommandParameter="{Binding MyTasks}"

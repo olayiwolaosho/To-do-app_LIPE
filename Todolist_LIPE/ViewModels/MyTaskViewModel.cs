@@ -12,26 +12,44 @@ using Xamarin.Forms;
 
 namespace Todolist_LIPE.ViewModels
 {
-    public class MyTaskViewModel : BaseViewModel
+    public sealed class MyTaskViewModel : BaseViewModel
     {
         private INavigation navigation;
 
-       // private IDatabaseRepo database;
-        public MyTaskViewModel(INavigation navigation)
+        private async Task<MyTaskViewModel> InitializeAsync()
+        {
+            _tasks = new ObservableCollection<Tasks>(await App.Databaserepo.GetAllObjects<Tasks>());
+            return this;
+        }
+
+        public static Task<MyTaskViewModel> CreateAsync(INavigation navigation)
+        {
+            var ret = new MyTaskViewModel(navigation);
+            return ret.InitializeAsync();
+        }
+                    
+        // private IDatabaseRepo database;
+        private MyTaskViewModel(INavigation navigation)
         {
             this.navigation = navigation;
             IsNotBusy = true;
-           
+            SubscribeMethod();
+        }
+
+        public void SubscribeMethod()
+        {
             MessagingCenter.Subscribe<EditTasksViewModel, Tasks>(
-            this, "UpdateList", async(sender, arg) =>
+            this, "UpdateList", async (sender, arg) =>
             {
                 await App.Databaserepo.SaveObject(arg);
-                //var index = _tasks.IndexOf(_tasks.First(a => a.ID == arg.ID));
-                //_tasks.RemoveAt(index);
-                //_tasks.Insert(index, arg);
-            }); 
-            
 
+            });
+
+            MessagingCenter.Subscribe<MyTaskViewModel, Tasks>(
+            this, "AddList", (sender, arg) =>
+            {
+                MyTasks.Add(arg);
+            });
         }
 
         private Tasks _newtask;
@@ -52,7 +70,7 @@ namespace Todolist_LIPE.ViewModels
         }
 
         private ObservableCollection<Tasks> _tasks;
-        public ObservableCollection<Tasks> MyTasks
+        public ObservableCollection<Tasks> MyTasks 
         {
             get => _tasks;
             set => SetProperty(ref _tasks, value);
@@ -79,9 +97,10 @@ namespace Todolist_LIPE.ViewModels
             {
                
                 await navigation.PopPopupAsync();
+               // MyTasks.Add(tasks);
                 MessagingCenter.Send(this, "AddList", tasks);
             }
-           // MyTasks.Add(tasks);
+           
             IsNotBusy = true;
             
         }); 
